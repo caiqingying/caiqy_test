@@ -1,0 +1,134 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-header">
+        <h1 class="page-title">用户管理</h1>
+        <div class="page-actions">
+          <a routerLink="/users/add" class="btn btn-primary">
+            <i class="icon">➕</i> 添加用户
+          </a>
+        </div>
+      </div>
+
+      @if (loading) {
+        <div class="loading-container">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">加载中...</span>
+          </div>
+          <p class="mt-2">正在加载用户列表...</p>
+        </div>
+      }
+
+      @if (error) {
+        <div class="alert alert-danger" role="alert">
+          <strong>错误：</strong> {{ error }}
+          <button type="button" class="btn btn-sm btn-outline-danger ms-2" (click)="loadUsers()">
+            重试
+          </button>
+        </div>
+      }
+
+      @if (!loading && !error) {
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title mb-0">用户列表 ({{ users.length }})</h5>
+          </div>
+          <div class="card-body p-0">
+            @if (users.length === 0) {
+              <div class="empty-state">
+                <div class="empty-icon">👥</div>
+                <h4>暂无用户</h4>
+                <p class="text-muted">还没有添加任何用户，点击上方按钮开始添加。</p>
+                <a routerLink="/users/add" class="btn btn-primary">添加第一个用户</a>
+              </div>
+            } @else {
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                  <thead class="table-light">
+                    <tr>
+                      <th>ID</th>
+                      <th>姓名</th>
+                      <th>邮箱</th>
+                      <th>角色</th>
+                      <th>状态</th>
+                      <th>简介</th>
+                      <th width="200">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @for (user of users; track user.id) {
+                      <tr>
+                        <td>
+                          <span class="user-id">#{{ user.id }}</span>
+                        </td>
+                        <td>
+                          <div class="user-info">
+                            <div class="user-avatar">
+                              {{ user.name.charAt(0) }}
+                            </div>
+                            <span class="user-name">{{ user.name }}</span>
+                          </div>
+                        </td>
+                        <td>
+                          <a [href]="'mailto:' + user.email" class="email-link">
+                            {{ user.email }}
+                          </a>
+                        </td>
+                        <td>
+                          <span class="badge" [class]="getRoleClass(user.role)">
+                            {{ user.role || '未设置' }}
+                          </span>
+                        </td>
+                        <td>
+                          <span class="badge" [class]="getStatusClass(user.active)">
+                            {{ getStatusText(user.active) }}
+                          </span>
+                        </td>
+                        <td>
+                          <span class="user-bio" [title]="user.bio">
+                            {{ user.bio || '暂无简介' }}
+                          </span>
+                        </td>
+                        <td>
+                          <div class="btn-group btn-group-sm" role="group">
+                            <button 
+                              type="button" 
+                              class="btn btn-outline-info"
+                              title="查看详情">
+                              👁️
+                            </button>
+                            <button 
+                              type="button" 
+                              class="btn btn-outline-warning"
+                              title="编辑用户">
+                              ✏️
+                            </button>
+                            <button 
+                              type="button" 
+                              class="btn"
+                              [class]="user.active ? 'btn-outline-warning' : 'btn-outline-success'"
+                              [title]="user.active ? '禁用用户' : '启用用户'"
+                              (click)="toggleUserStatus(user.id)">
+                              {{ user.active ? '🚫' : '✅' }}
+                            </button>
+                            <button 
+                              type="button" 
+                              class="btn btn-outline-danger"
+                              title="删除用户"
+                              (click)="deleteUser(user.id)">
+                              🗑️
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

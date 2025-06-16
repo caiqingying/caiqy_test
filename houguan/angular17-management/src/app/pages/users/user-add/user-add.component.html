@@ -1,0 +1,179 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-header">
+        <h1 class="page-title">添加用户</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a routerLink="/users">用户管理</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">添加用户</li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title mb-0">
+                <i class="icon">👤</i> 用户信息
+              </h5>
+            </div>
+            <div class="card-body">
+              <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="name" class="form-label">
+                        姓名 <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        [class.is-invalid]="hasFieldError('name')"
+                        id="name"
+                        name="name"
+                        [(ngModel)]="user.name"
+                        placeholder="请输入用户姓名"
+                        required>
+                      @if (hasFieldError('name')) {
+                        <div class="invalid-feedback">
+                          {{ getFieldError('name') }}
+                        </div>
+                      }
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="email" class="form-label">
+                        邮箱 <span class="text-danger">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        [class.is-invalid]="hasFieldError('email')"
+                        id="email"
+                        name="email"
+                        [(ngModel)]="user.email"
+                        placeholder="请输入邮箱地址"
+                        required>
+                      @if (hasFieldError('email')) {
+                        <div class="invalid-feedback">
+                          {{ getFieldError('email') }}
+                        </div>
+                      }
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="role" class="form-label">
+                        角色 <span class="text-danger">*</span>
+                      </label>
+                      <select
+                        class="form-select"
+                        [class.is-invalid]="hasFieldError('role')"
+                        id="role"
+                        name="role"
+                        [(ngModel)]="user.role"
+                        required>
+                        <option value="">请选择角色</option>
+                        @for (role of roles; track role) {
+                          <option [value]="role">{{ role }}</option>
+                        }
+                      </select>
+                      @if (hasFieldError('role')) {
+                        <div class="invalid-feedback">
+                          {{ getFieldError('role') }}
+                        </div>
+                      }
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <label class="form-label">状态</label>
+                      <div class="form-check form-switch">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="active"
+                          name="active"
+                          [(ngModel)]="user.active">
+                        <label class="form-check-label" for="active">
+                          {{ user.active ? '活跃' : '禁用' }}
+                        </label>
+                      </div>
+                      <small class="form-text text-muted">
+                        禁用的用户将无法登录系统
+                      </small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="bio" class="form-label">个人简介</label>
+                  <textarea
+                    class="form-control"
+                    id="bio"
+                    name="bio"
+                    [(ngModel)]="user.bio"
+                    rows="4"
+                    placeholder="请输入个人简介（可选）"></textarea>
+                  <small class="form-text text-muted">
+                    简单介绍一下这个用户的背景或职责
+                  </small>
+                </div>
+
+                <div class="form-actions">
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    [disabled]="loading">
+                    @if (loading) {
+                      <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                      创建中...
+                    } @else {
+                      <i class="icon">✅</i> 创建用户
+                    }
+                  </button>
+                  
+                  <button
+                    type="button"
+                    class="btn btn-secondary ms-2"
+                    (click)="onCancel()"
+                    [disabled]="loading">
+                    <i class="icon">❌</i> 取消
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- 帮助信息 -->
+          <div class="card mt-4">
+            <div class="card-header">
+              <h6 class="card-title mb-0">
+                <i class="icon">💡</i> 填写提示
+              </h6>
+            </div>
+            <div class="card-body">
+              <ul class="help-list">
+                <li><strong>姓名：</strong>用户的真实姓名，至少2个字符</li>
+                <li><strong>邮箱：</strong>用于登录和接收通知的邮箱地址</li>
+                <li><strong>角色：</strong>决定用户在系统中的权限级别</li>
+                <li><strong>状态：</strong>控制用户是否可以正常使用系统</li>
+                <li><strong>简介：</strong>可选项，用于记录用户的背景信息</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-header">
+        <h1 class="page-title">系统设置</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title mb-0">
+                <i class="icon">⚙️</i> 基本设置
+              </h5>
+            </div>
+            <div class="card-body">
+              <div class="alert alert-info" role="alert">
+                <strong>提示：</strong> 这是一个演示页面，展示系统设置功能的基本布局。
+              </div>
+              
+              <form>
+                <div class="mb-3">
+                  <label for="systemName" class="form-label">系统名称</label>
+                  <input type="text" class="form-control" id="systemName" value="Angular 17 管理系统">
+                </div>
+                
+                <div class="mb-3">
+                  <label for="systemDescription" class="form-label">系统描述</label>
+                  <textarea class="form-control" id="systemDescription" rows="3">基于 Angular 17 构建的现代化管理系统</textarea>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="adminEmail" class="form-label">管理员邮箱</label>
+                  <input type="email" class="form-control" id="adminEmail" value="admin@example.com">
+                </div>
+                
+                <div class="mb-3">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="enableNotifications" checked>
+                    <label class="form-check-label" for="enableNotifications">
+                      启用系统通知
+                    </label>
+                  </div>
+                </div>
+                
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">
+                    <i class="icon">💾</i> 保存设置
+                  </button>
+                  <button type="button" class="btn btn-secondary">
+                    <i class="icon">🔄</i> 重置
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-header">
+              <h6 class="card-title mb-0">
+                <i class="icon">📊</i> 系统信息
+              </h6>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <strong>版本：</strong> v1.0.0
+                </li>
+                <li class="mb-2">
+                  <strong>框架：</strong> Angular 17
+                </li>
+                <li class="mb-2">
+                  <strong>构建时间：</strong> {{ getCurrentDate() }}
+                </li>
+                <li class="mb-2">
+                  <strong>运行环境：</strong> 开发环境
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="card mt-3">
+            <div class="card-header">
+              <h6 class="card-title mb-0">
+                <i class="icon">🔗</i> 快速链接
+              </h6>
+            </div>
+            <div class="card-body">
+              <div class="d-grid gap-2">
+                <a routerLink="/users" class="btn btn-outline-primary btn-sm">
+                  用户管理
+                </a>
+                <a routerLink="/statistics/overview" class="btn btn-outline-info btn-sm">
+                  数据统计
+                </a>
+                <a routerLink="/help" class="btn btn-outline-secondary btn-sm">
+                  帮助中心
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="app-container">
+  <!-- 侧边栏 -->
+  <app-sidebar></app-sidebar>
+  
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    <header class="main-header">
+      <div class="header-content">
+        <h2 class="header-title">{{ title }}</h2>
+        <div class="header-actions">
+          <span class="current-time">{{ getCurrentTime() }}</span>
+        </div>
+      </div>
+    </header>
+    
+    <main class="content-area">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

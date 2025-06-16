@@ -1,0 +1,53 @@
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h3>管理系统</h3>
+    <p class="text-muted">Angular 17</p>
+  </div>
+  
+  <ul class="sidebar-menu">
+    @for (item of menuItems; track item.key) {
+      <li class="menu-item" [class.active]="isMenuActive(item.key)">
+        @if (item.children) {
+          <!-- 有子菜单的项目 -->
+          <a href="#" (click)="toggleMenu(item.key); $event.preventDefault()" class="menu-link">
+            <i class="menu-icon">{{ item.icon }}</i>
+            <span>{{ item.label }}</span>
+            <i class="arrow" [class.arrow-down]="isMenuOpen(item.key)">▶</i>
+          </a>
+          @if (isMenuOpen(item.key)) {
+            <ul class="submenu">
+              @for (subItem of item.children; track subItem.route) {
+                <li>
+                  <a [routerLink]="subItem.route" 
+                     [class.active]="isRouteActive(subItem.route)"
+                     routerLinkActive="active">
+                    {{ subItem.label }}
+                  </a>
+                </li>
+              }
+            </ul>
+          }
+        } @else {
+          <!-- 单级菜单项目 -->
+          <a [routerLink]="item.route!" 
+             class="menu-link" 
+             [class.active]="isRouteActive(item.route!)"
+             routerLinkActive="active">
+            <i class="menu-icon">{{ item.icon }}</i>
+            <span>{{ item.label }}</span>
+          </a>
+        }
+      </li>
+    }
+  </ul>
+  
+  <div class="sidebar-footer">
+    <div class="user-info">
+      <div class="user-avatar">👨‍💼</div>
+      <div class="user-details">
+        <div class="user-name">管理员</div>
+        <div class="user-role">系统管理员</div>
+      </div>
+    </div>
+  </div>
+</div>
