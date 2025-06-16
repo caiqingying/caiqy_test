@@ -11,7 +11,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular 17 管理系统';
+  title = 'Angular 18 管理系统';
 
   getCurrentTime(): string {
     return new Date().toLocaleString('zh-CN', {
