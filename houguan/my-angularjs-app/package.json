@@ -1,0 +1,39 @@
+{
+    "name": "my-angularjs-app",
+    "version": "1.0.0",
+    "description": "AngularJS Application",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo no test case",
+      "build": "gulp build",
+      "start": "gulp"
+    },
+    "author": "x-cold <1xstart@outlook.com>",
+    "license": "MIT",
+    "dependencies": {
+      "angular": "1.4.8",
+      "angular-animate": "1.4.8",
+      "angular-cookies": "1.4.8",
+      "angular-loading-bar": "0.7.1",
+      "angular-resource": "1.4.8",
+      "angular-route": "1.4.8",
+      "angular-touch": "1.4.8",
+      "angular-ui-bootstrap": "1.3.3",
+      "angular-ui-router": "0.4.3",
+      "bootstrap": "3.4.1",
+      "lodash": "4.17.21",
+      "moment": "2.29.4"
+    },
+    "devDependencies": {
+      "gulp": "^4.0.2",
+      "gulp-clean": "^0.4.0",
+      "gulp-concat": "^2.6.1",
+      "gulp-connect": "^5.7.0",
+      "gulp-cssmin": "^0.2.0",
+      "gulp-jshint": "^2.1.0",
+      "gulp-load-plugins": "^2.0.8",
+      "gulp-uglify": "^3.0.2",
+      "jshint": "^2.13.4",
+      "open": "^8.4.2"
+    }
+  }

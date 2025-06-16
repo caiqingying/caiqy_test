@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS App</title>
+  <base href="/">
+  <!-- Bootstrap CSS -->
+  <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Loading Bar CSS -->
+  <link href="../../node_modules/angular-loading-bar/build/loading-bar.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <style>
+    body { 
+      padding: 0; 
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+  <link rel="stylesheet" href="styles/sidebar.css">
+</head>
+<body>
+  <!-- 侧边栏 -->
+  <div ng-include="'components/sidebar.html'" ng-controller="SidebarCtrl"></div>
+  
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    <div ng-view></div>
+  </div>
+
+  <!-- 核心库 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-resource.min.js"></script>
+
+  <!-- 应用文件 -->
+  <script src="../../src/dist/app/bundle.js"></script>
+  <script src="../../src/dist/app/services.js"></script>
+
+  <!-- Core AngularJS -->
+  <script src="../../node_modules/angular/angular.min.js"></script>
+  
+  <!-- AngularJS Modules -->
+  <script src="../../node_modules/angular-animate/angular-animate.min.js"></script>
+  <script src="../../node_modules/angular-touch/angular-touch.min.js"></script>
+  <script src="../../node_modules/angular-cookies/angular-cookies.min.js"></script>
+  
+  <!-- UI Router -->
+  <script src="../../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  
+  <!-- Loading Bar -->
+  <script src="../../node_modules/angular-loading-bar/build/loading-bar.min.js"></script>
+  
+  <!-- UI Bootstrap -->
+  <script src="../../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+</body>
+</html>

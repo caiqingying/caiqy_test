@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>用户管理</h2>
+      
+      <!-- 错误提示 -->
+      <div class="alert alert-danger" ng-if="error">
+        {{error}}
+      </div>
+
+      <!-- 加载状态 -->
+      <div class="text-center" ng-if="loading">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+      <!-- 用户列表 -->
+      <div class="table-responsive" ng-if="!loading">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>姓名</th>
+              <th>邮箱</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="user in users track by $index">
+              <td>{{user.id || $index + 1}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td>
+                <button class="btn btn-danger btn-sm" ng-click="deleteUser(user.id || $index)">
+                  删除
+                </button>
+              </td>
+            </tr>
+            <tr ng-if="users.length === 0">
+              <td colspan="4" class="text-center">暂无用户数据</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 添加用户按钮 -->
+      <button class="btn btn-primary" ng-click="addUser()" ng-disabled="loading">
+        添加用户
+      </button>
+    </div>
+  </div>
+</div> 

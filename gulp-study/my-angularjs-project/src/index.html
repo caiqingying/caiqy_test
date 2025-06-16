@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>My angularJS App</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script  type="text/javascript"  src="app.js"></script>
+</head>
+<body>
+    <div ng-controller="MainController">
+        <div class="page-header">
+            <h1>Example page header <small>Subtext for header</small></h1>
+            <div class="alert alert-success" role="alert">...</div>
+            <input type="number" ng-attr-max = '{{maxValue}}' min = 1 ng-model="page" >
+          
+        </div>
+        <h1> {{message}} </h1>
+    </div>
+    <style>
+        input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* 隐藏 Firefox 的数字输入框上下箭头 */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+    </style>
+</body>
+</html>

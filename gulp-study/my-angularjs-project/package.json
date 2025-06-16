@@ -1,0 +1,26 @@
+{
+  "name": "my-angularjs-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "live-server ./ --port=8088"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.8.3",
+    "bootstrap": "^3.4.1",
+    "gulp-load-plugins": "^2.0.8",
+    "jquery": "^3.7.1",
+    "live-server": "^1.2.2"
+  },
+  "devDependencies": {
+    "gulp": "^5.0.1",
+    "gulp-angular-templatecache": "^3.0.1",
+    "gulp-connect": "^5.7.0",
+    "gulp-htmlmin": "^5.0.1"
+  }
+}

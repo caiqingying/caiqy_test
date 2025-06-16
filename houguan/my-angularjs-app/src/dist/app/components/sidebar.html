@@ -1,0 +1,57 @@
+<div class="sidebar">
+  <div class="sidebar-header">
+    <h3>管理系统</h3>
+  </div>
+  
+  <ul class="sidebar-menu">
+    <!-- 用户管理 -->
+    <li class="menu-item" ng-class="{active: isMenuActive('user')}">
+      <a href="#" ng-click="toggleMenu('user')" class="menu-link">
+        <i class="icon-user"></i>
+        <span>用户管理</span>
+        <i class="arrow" ng-class="{'arrow-down': isMenuOpen('user')}"></i>
+      </a>
+      <ul class="submenu" ng-show="isMenuOpen('user')">
+        <li><a href="#!/users" ng-class="{active: isActive('/users')}">用户列表</a></li>
+        <li><a href="#!/users/add" ng-class="{active: isActive('/users/add')}">添加用户</a></li>
+        <li><a href="#!/users/roles" ng-class="{active: isActive('/users/roles')}">角色管理</a></li>
+      </ul>
+    </li>
+
+    <!-- 系统设置 -->
+    <li class="menu-item" ng-class="{active: isMenuActive('system')}">
+      <a href="#" ng-click="toggleMenu('system')" class="menu-link">
+        <i class="icon-settings"></i>
+        <span>系统设置</span>
+        <i class="arrow" ng-class="{'arrow-down': isMenuOpen('system')}"></i>
+      </a>
+      <ul class="submenu" ng-show="isMenuOpen('system')">
+        <li><a href="#!/settings/general" ng-class="{active: isActive('/settings/general')}">基本设置</a></li>
+        <li><a href="#!/settings/security" ng-class="{active: isActive('/settings/security')}">安全设置</a></li>
+        <li><a href="#!/settings/backup" ng-class="{active: isActive('/settings/backup')}">备份管理</a></li>
+      </ul>
+    </li>
+
+    <!-- 数据统计 -->
+    <li class="menu-item" ng-class="{active: isMenuActive('statistics')}">
+      <a href="#" ng-click="toggleMenu('statistics')" class="menu-link">
+        <i class="icon-chart"></i>
+        <span>数据统计</span>
+        <i class="arrow" ng-class="{'arrow-down': isMenuOpen('statistics')}"></i>
+      </a>
+      <ul class="submenu" ng-show="isMenuOpen('statistics')">
+        <li><a href="#!/statistics/overview" ng-class="{active: isActive('/statistics/overview')}">数据概览</a></li>
+        <li><a href="#!/statistics/reports" ng-class="{active: isActive('/statistics/reports')}">报表管理</a></li>
+        <li><a href="#!/statistics/analytics" ng-class="{active: isActive('/statistics/analytics')}">数据分析</a></li>
+      </ul>
+    </li>
+
+    <!-- 帮助中心 -->
+    <li class="menu-item">
+      <a href="#!/help" class="menu-link" ng-class="{active: isActive('/help')}">
+        <i class="icon-help"></i>
+        <span>帮助中心</span>
+      </a>
+    </li>
+  </ul>
+</div> 
